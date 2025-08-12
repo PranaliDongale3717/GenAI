@@ -1,0 +1,128 @@
+#include <iostream>‬
+#include <string>‬
+using namespace std;‬
+int main(){‬
+int totU, totD, totS;‬
+const int size = 100;‬
+string U[size], A[size], B[size];‬
+cout << "B24CE1067-Pranali Dongale \n";‬
+//universal Set‬
+cout << "Enter total number of students in College clubs(Universal set): ";‬
+cin >> totU;‬
+cout << "Enter names of all students:\n";‬
+for (int i = 0; i < totU; i++) {‬
+cin >> U[i];‬
+}‬
+//Accept data for Drama club‬
+cout << "\nEnter total number of students in Drama Club: ";‬
+cin >> totD;‬
+cout << "Enter names of students in Drama Club:\n";‬
+for (int i = 0; i < totD; i++) {‬
+cin >> A[i];‬}‬
+//Accept data for Science club‬
+cout << "\nEnter total number of students in Science Club: ";‬
+cin >> totS;‬
+cout << "Enter names of students in Science Club:\n";‬
+for (int i = 0; i < totS; i++) {‬
+cin >> B[i];‬
+}‬
+//display students in clubs i.e.universal set‬
+cout << "\nAll Students: ";‬
+for (int i = 0; i < totU; i++) {‬
+cout << U[i] << " ";‬
+}‬
+//Display students in Drama club‬
+cout << "\nStudents in Drama Club: ";‬
+for (int i = 0; i < totD; i++) {‬
+cout << A[i] << " ";‬
+}‬
+//Display students in Science club‬
+cout << "\nStudents in Science Club: ";‬
+for (int i = 0; i < totS; i++) {‬
+cout << B[i] << " ";‬
+}‬
+//Display Students in both clubs (Intersection)‬
+cout << "\nStudents in both clubs: ";‬
+for (int i = 0; i < totD; i++) {‬
+int found = 0;‬
+for (int j = 0; j < totS; j++) {‬
+if (A[i] == B[j]) {‬
+found = 1;‬
+break;‬
+}‬
+}‬
+if (found == 1) {‬
+cout << A[i] << " ";‬}‬
+}‬
+//Display Students in at least one club(Union)‬
+cout << "\nStudents in at least one club: ";‬
+for (int i = 0; i < totU; i++) {‬
+int inD= 0;‬
+for (int j = 0; j < totD; j++) {‬
+if (U[i] == A[j]) {‬
+inD = 1;‬
+break;‬
+}‬
+}‬
+int inB = 0;‬
+for (int j = 0; j < totS; j++) {‬
+if (U[i] == B[j]) {‬
+inB = 1;‬
+break;‬
+}‬
+}‬
+if (inD == 1 || inB == 1) { // logical OR‬
+cout << U[i] << " ";‬
+}‬
+}‬
+//Display students in only Drama club(Difference, D-S)‬
+cout << "\nStudents in only Drama Club: ";‬
+for (int i = 0; i < totD; i++) {‬
+int inB = 0;‬
+for (int j = 0; j < totS; j++) {‬
+if (A[i] == B[j]) {‬
+inB = 1;‬
+break;‬
+}‬
+}‬
+if (!(inB == 1)) { // not in B‬
+cout << A[i] << " ";‬
+}‬
+}‬/ ‭ /Display Students in only Science club (Difference,S - D)‬
+cout << "\nStudents in only Science Club: ";‬
+for (int i = 0; i < totS; i++) {‬
+int inD = 0;‬
+for (int j = 0; j < totD; j++) {‬
+if (B[i] == A[j]) {‬
+inD = 1;‬
+break;‬
+}‬
+}‬
+if (!(inD == 1)) { // not in A‬
+cout << B[i] << " ";‬
+}‬
+}‬
+//Display Students in neither Drama club nor science club‬
+cout << "\nStudents in neither Drama club nor science club: ";‬
+for (int i = 0; i < totU; i++) {‬
+int inD = 0;‬
+for (int j = 0; j < totD; j++) {‬
+if (U[i] == A[j]) {‬
+inD = 1;‬
+break;‬
+}‬
+}‬
+int inB = 0;‬
+for (int j = 0; j < totS; j++) {‬
+if (U[i] == B[j]) {‬
+inB = 1;‬
+break;‬
+}‬
+}‬
+if (!(inD == 1) && !(inB == 1)) {    // neither‬
+cout << U[i] << " ";‬
+}‬
+}‬
+cout << endl;‬
+return 0;‬
+}‬
