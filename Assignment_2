@@ -1,0 +1,25 @@
+include<iostream>‬
+#
+using namespace std;‬
+int main(){‬
+int U_students=200;// total no. of students‬
+int sports_club=120;// no. of students in sports club‬
+int music_club=90;//no. of students in music club‬
+int common=50; //common students in both clubs i.e.intersection‬
+//no. of students in atleast one club‬
+int unionclub =sports_club + music_club - common ;‬
+//no.of students only member of music club‬
+int onlymusic= music_club-common;‬
+//no. of students only member of sports club‬
+int onlysports = sports_club - common;‬//no.of students who are member of neither of two clubs‬
+int none= U_students - unionclub;‬
+c ‭ out<<"No. of students in atleast one club: ";‬
+cout<< unionclub<<" " ;‬
+cout<<"\nNo. of students only member of sports club:";‬
+cout<< onlysports <<" ";‬
+cout<<"\nNo. of students only member of music club: ";‬
+cout<< onlymusic <<" ";‬
+cout<<"\nNo. of students who are member of neither of two clubs: ";‬
+cout<< none <<" ";‬
+return 0 ;‬
+}‬
