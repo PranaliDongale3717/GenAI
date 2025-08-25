@@ -1,0 +1,42 @@
+/*A school has selected a group of 20 students for a debate competition. 
+The task is to determine the number of different teams of 3 students that can be formed from this group. 
+This involves calculating combinations, where the order of selection does not matter.*/
+
+CODE:
+#include<iostream>
+using namespace std;
+int main(){
+
+	int n, r;
+	
+  //Accept details of Students selected for competition
+	cout<<"Enter no. of students selected for debate competition:";
+	cin>>n;
+	
+	//Accept details of Students whose group can be made
+	cout<<"Enter no. of students whose group can be made:";
+	cin>>r;
+	
+	//First calculation for permutation 
+	int ways=1;
+	for(int i=0;i<r;i++){
+		ways*=(n-i);
+	}
+	
+	//Calculation for factorial of r
+	int factorial=1;
+	for(int i=1;i<=r;i++){
+		factorial *=i;
+	}
+	
+	
+
+
+          //Calculation for combinations for group formation
+	int combination = ways/factorial;
+	cout<<"\nThe number of different teams of " << r << " students that can be   
+                       formed:"<<combination;
+	return 0;
+}
+	
+
