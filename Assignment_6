@@ -1,0 +1,73 @@
+/*PROBLEM STATEMENT:
+A teacher wants to analyze the performance of students in a recent examination. To understand
+the overall class achievement and identify trends in student performance, the teacher needs to
+calculate the measures of central tendency specifically, the mean, mode, and median from the
+student score data.*/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+     
+    int n;
+    cout << "Enter number of students: ";
+    cin >> n;
+
+    int scores[n];  
+    cout << "Enter the scores:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> scores[i];
+    }
+
+    //Mean
+    float sum = 0;
+    for (int i = 0; i < n; i++) {
+        sum += scores[i];
+    }
+    float mean = sum / n;
+    cout<<"\nMean:"<<mean<<endl;
+    
+    //Mode
+    int maxcount=0, mode=scores[0];
+    for(int i=0;i<n;i++){
+        int count=0;
+        for(int j=0;j<n;j++){
+            if(scores[j]==scores[i]){
+                count++;
+            }
+            if(count>maxcount){
+                maxcount=count;
+                mode=scores[i];
+            }
+        }
+    }
+    if(maxcount==1){
+        cout<<"\nNo mode\n";
+    }else{
+        cout << "\nMode: " << mode<<" (it appears "<<maxcount<<" times)" << endl;
+    }
+    
+    //Median
+     for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - i - 1; j++) {
+            if (scores[j] >scores[j + 1]) {
+                int temp = scores[j];
+                scores[j] = scores[j + 1];
+                scores[j + 1] = temp;
+            }
+        }
+    }
+    cout << "\nSorted scores:\n";
+    for (int i = 0; i < n; i++) {
+        cout << scores[i] << " ";
+    }
+    cout << endl;                                                                        
+    if (n % 2 == 0) {
+        float median = (scores[n / 2 - 1] + scores[n / 2]) / 2.0;
+        cout << "\nMedian: " << median << endl;
+    } else {
+        float median = scores[n / 2];
+        cout << "\nMedian: " << median << endl;
+    }
+    return 0;
+}
