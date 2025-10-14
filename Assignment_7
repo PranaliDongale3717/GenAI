@@ -1,0 +1,33 @@
+TITLE:Measures of Dispersion
+PROBLEM STATEMENT:
+A teacher wants to compare the consistency of study hours between two different groups of students. 
+To achieve this, the teacher needs to analyze the range, variance, and standard deviation of study hours data for both groups. 
+This analysis will help in understanding how dispersed the data is around the average, offering insight into study behavior differences between the groups.
+
+PROGRAM:
+import statistics
+def get_data(group):
+    data = list(map(float, input(f"Enter study hours for {group} (space separated): ").split()))
+    print(f"Data entered for {group}: {data}")  
+    return data
+
+def analyze(data, group):
+    mean = statistics.mean(data)
+    variance = statistics.pvariance(data)      # population variance
+    std_dev = statistics.pstdev(data)           # population std deviation
+    data_range = max(data) - min(data)
+    
+    print(f"\n{group} Study Hours Analysis:")
+    print(f"Mean (Average): {mean:.2f}")
+    print(f"Range (Max - Min): {data_range:.2f}")
+    print(f"Population Variance: {variance:.2f}")
+    print(f"Population Standard Deviation: {std_dev:.2f}")
+    
+    return mean, variance, std_dev, data_range
+
+g1 = get_data("Group 1")
+analyze(g1, "Group 1")
+
+g2 = get_data("Group 2")
+analyze(g2, "Group 2")
+
