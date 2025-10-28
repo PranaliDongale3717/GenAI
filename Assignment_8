@@ -1,0 +1,42 @@
+/*PROBLEM STATEMENT: A manufacturer claims that the mean lifetime of a certain type of
+battery is at least 1000 hours. A consumer agency tests a random sample of 36 batteries and finds the sample mean is 980 hours with a population standard deviation of 60 hours. Perform
+following tasks-
+● State the null and alternative hypotheses.
+● Perform a hypothesis test at the 5% significance level.
+● Find the critical value and the test statistic.
+● Conclude whether the claim can be accepted or rejected.*/
+
+#include<iostream>
+#include<cmath>
+using namespace std;
+int main(){
+    int mu0=1000;
+    int mu=980;
+    int n=36;
+    int sigma=60;
+    double a=0.05;
+    
+    //population standard deviation is known, so we use Z-test
+    //test statistics
+    double z=(mu-mu0)/(sigma/sqrt(n));
+    //significance value, a=0.05
+    double critical=-1.64;
+   	 
+    cout<<"---------Hypothesis Testing-----------\n";
+    cout << "Null hypothesis: mean >= 1000\n";
+ cout << "Alternate hypothesis: mean < 1000";
+    cout<<"\nThis is a left-tailed test.\n";
+
+    cout<<"\nPopulation standard deviation: "<<sigma<<"\n";
+    cout<<"Sample mean: "<<mu<<"hrs"<<"\n";
+    cout<<"Sample size: "<< n <<"batteries.\n";
+    cout<<"Hypothesized Population Mean : "<<mu0<<"hrs\n";
+    cout<<"Significance level: "<<a<<"\n";
+    cout<<"\nTest statistics:"<<z<<"\n";
+    cout<<"Critical value: "<<critical<<"\n";
+    if(z<critical){
+    	  cout<<"\nClaim is rejected i.e reject null hypothesis.";
+    	  cout<<"The battery's mean lifetime is indeed less than 1000 hours";
+        }else{
+    	    cout<<"Claim is accepted.";}
+}
